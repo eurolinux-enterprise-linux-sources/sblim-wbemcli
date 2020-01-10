@@ -1,0 +1,152 @@
+/*
+ * $Id: README.pycli,v 1.3 2008/08/07 18:25:41 tyreld Exp $
+ *
+ * README.pycli
+ *
+ * (C) Copyright IBM Corp. 2002, 2008
+ * 
+ * THIS FILE IS PROVIDED UNDER THE TERMS OF THE ECLIPSE PUBLIC LICENSE
+ * ("AGREEMENT"). ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS FILE
+ * CONSTITUTES RECIPIENTS ACCEPTANCE OF THE AGREEMENT.
+ *
+ * You can obtain a current copy of the Eclipse Public License from
+ * http://www.opensource.org/licenses/eclipse-1.0.php
+ *
+ * Author:       David Eger <dteger@us.ibm.com>, <eger@cc.gatech.edu>
+ * Contributors: 
+ *
+ * Description: Python bindings for WBEMCLI
+ */
+
+
+The WBEMCLI Python Bindings
+===========================
+
+In addition to the 'wbemcli' command line tool, this package includes
+python bindings for accessing CIMOMs such as SNIA-CIMOM or OpenPegasus.
+If you do not use Python, you can safely ignore this.
+
+Files included:
++ CimXml.py  - the low-level C++/Python interface
++ cimcli.py  - some utility functions to make using CimXml easier.
+
+To compile the Python bindings, type:
+
+$ make clipy
+
+
+Using Python to talk to your CIMOMs
+===================================
+
+After this, you can run Python scripts which access CIMOMs, or use
+Python as an interactive shell for talking to CIMOMs.  
+
+In Python, 
+comments begin with a hash mark (#).  The Python prompt is '>>>', 
+or when continuing from a previous line '...'.  Python code is block
+structured by white space.  Further, you can continue the current line
+by putting a slash at the end of your line.
+
+Below is a sample of how you can use Python as a shell interface to 
+your CIMOMs:
+
+# BEGIN SAMPLE INTERACTION
+
+$ python
+Python 2.2.3+ (#1, Jul  6 2003, 23:35:56) 
+[GCC 3.3.1 20030626 (Debian prerelease)] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> execfile("cimcli.py")     # import utility functions
+>>> machines = getCIMOMs("192.168.64.8","24","PING")
+Portscanning port 5988 on subnet 192.168.64.8/24 for prospective CIMOMs
+IPs found:  ['192.168.64.8', '192.168.64.207']
+>>> setmachine("192.168.64.207", locals())    #
+>>>  # tell the CLI which machine we want to talk to
+>>> FSs = ei("CIM_FileSystem")                #
+>>>  # get a list of the filesystems on the box
+>>> len(FSs)  # how many did we get?
+4
+>>> for i in FSs.ia:  # for each filesystem instance... (ia = instance array)
+...    print i
+... 
+CreationClassName="Linux_Ext3FileSystem",Caption="Ext3 local file system",CSCreationClassName="Linux_ComputerSystem",CSName="dyn324513pok.pok.ibm.com",Name="/dev/sda1",Root="/boot",FileSystemType="ext3",Status="OK",Description="Represents the file store controlled by a ComputerSystem through local means.",ReadOnly=FALSE,BlockSize=1024,FileSystemSize=103515136,AvailableSpace=82735104,MaxFileNameLength=255,PercentageSpaceUse=14,ElementName="/boot",EnabledStatus=2,OtherEnabledStatus="NULL",RequestedStatus=2,EnabledDefault=3
+CreationClassName="Linux_Ext3FileSystem",Caption="Ext3 local file system",CSCreationClassName="Linux_ComputerSystem",CSName="dyn324513pok.pok.ibm.com",Name="/dev/sda2",Root="/home",FileSystemType="ext3",Status="OK",Description="Represents the file store controlled by a ComputerSystem through local means.",ReadOnly=FALSE,BlockSize=4096,FileSystemSize=7270162432,AvailableSpace=6450884608,MaxFileNameLength=255,PercentageSpaceUse=6,ElementName="/home",EnabledStatus=2,OtherEnabledStatus="NULL",RequestedStatus=2,EnabledDefault=3
+CreationClassName="Linux_Ext3FileSystem",Caption="Ext3 local file system",CSCreationClassName="Linux_ComputerSystem",CSName="dyn324513pok.pok.ibm.com",Name="/dev/sdb1",Root="/usr",FileSystemType="ext3",Status="OK",Description="Represents the file store controlled by a ComputerSystem through local means.",ReadOnly=FALSE,BlockSize=4096,FileSystemSize=8427929600,AvailableSpace=6655352832,MaxFileNameLength=255,PercentageSpaceUse=15,ElementName="/usr",EnabledStatus=2,OtherEnabledStatus="NULL",RequestedStatus=2,EnabledDefault=3
+CreationClassName="Linux_Ext3FileSystem",Caption="Ext3 local file system",CSCreationClassName="Linux_ComputerSystem",CSName="dyn324513pok.pok.ibm.com",Name="/dev/sda5",Root="/var",FileSystemType="ext3",Status="OK",Description="Represents the file store controlled by a ComputerSystem through local means.",ReadOnly=FALSE,BlockSize=4096,FileSystemSize=1052434432,AvailableSpace=949731328,MaxFileNameLength=255,PercentageSpaceUse=4,ElementName="/var",EnabledStatus=2,OtherEnabledStatus="NULL",RequestedStatus=2,EnabledDefault=3
+>>> for i in FSs.ia:  # that was too much information, let's do it different now.
+...    fsprops = i.getProperties()
+...    print "Filesystem on %s is %d%% full" % \
+...       (fsprops["ElementName"], \
+...        100 - 100 * long(fsprops["AvailableSpace"]) / long(fsprops["FileSystemSize"]))
+... 
+Filesystem on /boot is 21% full
+Filesystem on /home is 12% full
+Filesystem on /usr is 22% full
+Filesystem on /var is 10% full
+>>>
+
+# END SAMPLE INTERACTION
+
+
+How it works
+============
+By using the Python Client, you're getting direct access to the 
+C++ objects described by CimXml.h.  If, instead of saying "print" above,
+we had just typed the name of an object, our interaction would look like
+this:
+
+>>> execfile("cimcli.py")
+>>> setmachine("localhost",locals())
+>>> FSs = ei("CIM_FileSystem")
+>>> FSs
+<C NamedInstancesXml instance at _1015b4b0_p_NamedInstancesXml>
+
+This is the raw C++ object (actually, a raw pointer to a C++ object) of type
+NamedInstancesXml.  If you look in CimXml.h, you'll see a description like:
+
+/* from CimXml.h */
+
+class NamedInstancesXml : public RetValXml {
+  public:
+   InstanceArray ia;
+   InstanceNameArray ina;
+   NamedInstancesXml(NamedInstanceXml *n);
+   NamedInstancesXml * clone() { return new NamedInstancesXml(*this);}
+   void add(NamedInstanceXml& n);
+   InstanceNameXml& getName(int n)  { return ina.at(n); }
+   InstanceXml& getInst(int n)  { return ia.at(n); }
+   int size()                   { return ina.size(); }
+};
+
+Python doesn't need to know all of these details, just some.  We
+use a program called SWIG to automatically generate wrapper code so
+our Python code can talk to our C++ code.  We tell SWIG what wrappers
+to generate with a SWIG interface file called "CimXml.i".  In that file,
+we find the description:
+
+/* from CimXml.i */
+
+extern
+class NamedInstancesXml : public RetValXml {
+  public:
+   InstanceArray ia;
+   InstanceNameArray ina;
+   NamedInstancesXml(NamedInstanceXml *n);
+   void add(NamedInstanceXml& n);
+   InstanceNameXml& getName(int n);
+   InstanceXml& getInst(int n);
+%rename(__len__) size;
+   int size();
+};
+
+We've included the output of SWIG - CimXml.py and CimXml_wrap.cxx, so 
+unless you change the interface file, you don't need to have SWIG.
+
+For each piece of code in the interface file, SWIG makes the glue so 
+that handling objects and calling member functions between one OO language 
+and another "just works."  If your object has a method called add(), and you 
+tell SWIG this, then you can call object.add() from your Python code just
+as you would from C++.  Sometimes, however, you need to give SWIG some hints.
+Calling len() on a Python array is a natural way to get the array's length.
+Since our C++ code has a different name for this, we use the SWIG directive
+%rename().

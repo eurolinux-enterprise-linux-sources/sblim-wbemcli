@@ -1,0 +1,113 @@
+README 
+
+Welcome to the wbemcli command line tool to access
+data hosted by a CIMOM .
+
+Please use the man page for further information .
+man wbemcli
+
+Available Command Aliases :
+
+wbemgi		GetInstance
+wbemein 	EnumInstanceNames
+wbemei		EnumInstances
+
+wbemci		CreateInstance
+wbemmi		ModifyInstance
+wbemdi		DeleteInstance
+
+wbemgc		GetClass
+wbemgcd		GetClass
+wbemdc		DeleteClass
+wbemec		EnumClasses
+wbemecn		EnumClassNames
+
+wbemai		Associators
+wbemain		AssociatorNames
+wbemri		References
+wbemrin		ReferenceNames
+
+wbemgp		GetProperty
+wbemsp		SetProperty
+
+wbemcm		InvokeMethod
+wbemcmx		InvokeMethod
+
+Usage :
+
+wbemcli gc|gcd|dc|ec|ecn|gi|ci|mi|di|ei|ein|ain|ai|rin|ri|gp|sp
+	        [-nl] [-dx] [-t] [-h] [-v]
+	        [-ac <assocClass>] [-arc <resultClass>] [-ar <role>] [-arr <resultRole>]
+	        <url> [<attrs>]
+	gc	get class
+	gcd	get class definition
+	dc	delete class
+	ec	enumerate class
+	ecn	enumerate class names
+	ci	create instance
+	mi	modify instance
+	di	delete instance
+	ec	enumerate instances
+	ecn	enumerate instance names
+	ain	associate instance names
+	ai	associate instances
+	rin	reference instance names
+	ri	reference instances
+	gp	get property
+	sp	set property
+	cm	call method
+	cmx     call method (returns XML)
+
+	-nl	one attribute per line
+	-dx	xml debugging
+	-t	add array([]) and ref(&) indications
+	-h	help
+	-v	version
+
+	-ac	 association class name (ai, ain only)
+	-arc	 result class name (ai, ain, rin, ri only)
+	-ar	 role name (ai, ain, rin, ri only)
+	-arr	 result role name (ai, ain only)
+
+	url	'<protocol>://[user:password@]<host>[:<port>]/<namespace[/..]>:<classname>[.<key=value[,..]>]'
+	attrs	'<name=value[,..]>' (required for ci and mi only)
+
+	Single quotes should be used around the url and attrs to perserve double
+	qouted strings. If not enclosed the double quotes will be striped by the
+	shell, and wbemcli will mistake string values starting with a digit/+/- as
+	numeric, or strings starting with 'true/false' as boolean.
+		example 'http://localhost:5988/root/cimv2:rpm_package.name="glibc",id=5'
+
+	Host indirection support: The string '<protocol>://[user:password@]<host>[:<port>]' 
+	can be replaced by an arbitrary string. This string will be used to 
+	locate the proper protocol and host specification in ./wbemcli.ind or 
+	any file specified via the WBEMCLI_IND environment variable.
+	Format in ./wbemcli.ind is:
+		<string>: <protocol>://[user:password@]<host>[:<port>]
+
+BUILD Notes:
+
+See the INSTALL file. If checking out of CVS first run autoconfiscate.sh to
+setup the autotools.
+
+SSL Notes:
+
+Currently SSL (https) support is only working with libcurl. wbemcli supports
+both verification of the server and client certificate authentication.
+For server verification it is necessary to have access to a self signed
+certificate of the server or a CA certificate of the CA that issued the
+server's certificate in PEM format. 
+There's no default location for this certificate: it must be specified with 
+the -cacert option.
+The server certificate verification can be disabled with the -noverify option.
+If the server requires a client certificate, it can be specified with 
+-clientcert in which case it is also necessary to specify the client's
+private key file with -clientkey. Both files must be in PEM format.
+
+BUGS:
+
+Authentication with libghttp is broken: incorrect user/password will cause a
+hang situation.
+
+Authentication with libwww is slightly broken: incorrect user/password will
+cause a meaningless error code.

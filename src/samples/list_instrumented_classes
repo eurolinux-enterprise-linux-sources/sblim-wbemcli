@@ -1,0 +1,5 @@
+#!/bin/sh
+#
+# Lists all the instrumented Linux classes
+PATH=.:$PATH
+wbemcli ecn http://localhost/root/cimv2:CIM_ManagedElement | grep Linux

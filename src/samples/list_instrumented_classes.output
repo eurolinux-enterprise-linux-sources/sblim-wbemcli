@@ -1,0 +1,12 @@
+localhost:5988/root/cimv2:Linux_UnixProcess
+localhost:5988/root/cimv2:Linux_OperatingSystem
+localhost:5988/root/cimv2:Linux_NFS
+localhost:5988/root/cimv2:Linux_ReiserFileSystem
+localhost:5988/root/cimv2:Linux_Ext3FileSystem
+localhost:5988/root/cimv2:Linux_Ext2FileSystem
+localhost:5988/root/cimv2:Linux_LocalLoopbackPort
+localhost:5988/root/cimv2:Linux_TokenRingPort
+localhost:5988/root/cimv2:Linux_EthernetPort
+localhost:5988/root/cimv2:Linux_Processor
+localhost:5988/root/cimv2:Linux_IPProtocolEndpoint
+localhost:5988/root/cimv2:Linux_ComputerSystem

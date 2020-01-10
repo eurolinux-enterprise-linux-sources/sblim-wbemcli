@@ -1,0 +1,7 @@
+#!/bin/sh
+#
+# Lists all the instrumented Linux classes
+PATH=.:$PATH
+
+echo "Network interfaces"
+wbemei -nl http://localhost/root/cimv2:Linux_IPProtocolEndpoint | grep IPv4Address | sed 's/-.*=//' | sed 's/"//g'

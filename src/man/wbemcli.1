@@ -1,0 +1,582 @@
+.ig
+(C) Copyright IBM Corp. 2002, 2004, 2005, 2009
+
+Permission is granted to make and distribute verbatim copies of
+this manual provided the copyright notice and this permission notice
+are preserved on all copies.
+
+Permission is granted to copy and distribute modified versions of this
+manual under the conditions for verbatim copying, provided that the
+entire resulting derived work is distributed under the terms of a
+permission notice identical to this one.
+..
+
+.TH wbemcli 1 "June 2009" "wbemcli Version 1.6.1"
+
+.SH NAME
+wbemcli \- independent command line CIM Client
+.SH SYNOPSIS
+.B wbemcli
+.BR gc|gcd|dc|ec|ecn|gi|ci|mi|di|ei|ein|ai|ain|ri|rin|gp|sp|cm|cmx
+[\c
+.BR \-nl ]
+[\c
+.BR \-h ]
+[\c
+.BR \-t ]
+[\c
+.BR \-cte]
+[\c
+.BR \-dx ]
+[\c
+.BR \-dr ]
+[\c
+.BR \-noverify ]
+[\c
+.BR \-cacert \ file\fr]
+[\c
+.BR \-clientcert \ file\fr]
+[\c
+.BR \-clientkey \ file\fr]
+[\c
+.BI \-ac \ assocClass\fr]
+[\c
+.BI \-arc \ resultClass\fr]
+[\c
+.BI \-ar \ role\fr]
+[\c
+.BI -arr \ resultRole\fr]
+.I objectPath
+[\c
+.I prop=value[,...]]
+[\c
+.I prop[,...]]
+.SH Alternate formats:
+.LP
+.B wbemgc\t
+[\c
+.BR \-nl ]
+[\c
+.BR \-h ]
+[\c
+.BR \-t ]
+[\c
+.BR \-dx ]
+[\c
+.BR \-dr ]
+.I objectPath
+[\c
+.I prop[,...]]
+.LP
+.B wbemgcd\t
+[\c
+.BR \-nl ]
+[\c
+.BR \-h ]
+[\c
+.BR \-t ]
+[\c
+.BR \-dx ]
+[\c
+.BR \-dr ]
+.I objectPath
+.LP
+.B wbemdc\t
+[\c
+.BR \-nl ]
+[\c
+.BR \-h ]
+[\c
+.BR \-t ]
+[\c
+.BR \-dx ]
+[\c
+.BR \-dr ]
+.I objectPath
+.LP
+.B wbemec\t
+[\c
+.BR \-nl ]
+[\c
+.BR \-h ]
+[\c
+.BR \-t ]
+[\c
+.BR \-cte]
+[\c
+.BR \-dx ]
+[\c
+.BR \-dr ]
+.I objectPath
+[\c
+.I prop[,...]]
+.LP
+.B wbemecn\t
+[\c
+.BR \-nl ]
+[\c
+.BR \-h ]
+[\c
+.BR \-t ]
+[\c
+.BR \-dx ]
+[\c
+.BR \-dr ]
+.I objectPath
+.LP
+.B wbemgi\t
+[\c
+.BR \-nl ]
+[\c
+.BR \-h ]
+[\c
+.BR \-t ]
+[\c
+.BR \-dx ]
+[\c
+.BR \-dr ]
+.I objectPath
+[\c
+.I prop[,...]]
+.LP
+.B wbemci\t
+[\c
+.BR \-nl ]
+[\c
+.BR \-h ]
+[\c
+.BR \-t ]
+[\c
+.BR \-dx ]
+[\c
+.BR \-dr ]
+.I objectPath
+[\c
+.I prop=value[,...]]
+.LP
+.B wbemmi\t
+[\c
+.BR \-nl ]
+[\c
+.BR \-h ]
+[\c
+.BR \-t ]
+[\c
+.BR \-dx ]
+[\c
+.BR \-dr ]
+.I objectPath
+[\c
+.I prop=value[,...]]
+.LP
+.B wbemdi\t
+[\c
+.BR \-nl ]
+[\c
+.BR \-h ]
+[\c
+.BR \-t ]
+[\c
+.BR \-dx ]
+[\c
+.BR \-dr ]
+.I objectPath
+.LP
+.B wbemei\t
+[\c
+.BR \-nl ]
+[\c
+.BR \-h ]
+[\c
+.BR \-t ]
+[\c
+.BR \-cte]
+[\c
+.BR \-dx ]
+[\c
+.BR \-dr ]
+.I objectPath
+[\c
+.I prop[,...]]
+.LP
+.B wbemein\t
+[\c
+.BR \-nl ]
+[\c
+.BR \-h ]
+[\c
+.BR \-t ]
+[\c
+.BR \-dx ]
+[\c
+.BR \-dr ]
+.I objectPath
+.LP
+.B wbemai\t
+[\c
+.BR \-nl ]
+[\c
+.BR \-h ]
+[\c
+.BR \-t ]
+[\c
+.BR \-cte]
+[\c
+.BR \-dx ]
+[\c
+.BR \-dr ]
+[\c
+.BI \-ac \ assocClass\fr]
+[\c
+.BI \-arc \ resultClass\fr]
+[\c
+.BI \-ar \ role\fr]
+[\c
+.BI -arr \ resultRole\fr]
+.I objectPath
+[\c
+.I prop[,...]]
+.LP
+.B wbemain\t
+[\c
+.BR \-nl ]
+[\c
+.BR \-h ]
+[\c
+.BR \-t ]
+[\c
+.BR \-dx ]
+[\c
+.BR \-dr ]
+[\c
+.BI \-ac \ assocClass\fr]
+[\c
+.BI \-arc \ resultClass\fr]
+[\c
+.BI \-ar \ role\fr]
+[\c
+.BI -arr \ resultRole\fr]
+.I objectPath
+.LP
+.B wbemri\t
+[\c
+.BR \-nl ]
+[\c
+.BR \-h ]
+[\c
+.BR \-t ]
+[\c
+.BR \-cte]
+[\c
+.BR \-dx ]
+[\c
+.BR \-dr ]
+[\c
+.BI \-arc \ resultClass\fr]
+[\c
+.BI \-ar \ role\fr]
+.I objectPath
+[\c
+.I prop[,...]]
+.LP
+.B wbemrin\t
+[\c
+.BR \-nl ]
+[\c
+.BR \-h ]
+[\c
+.BR \-t ]
+[\c
+.BR \-dx ]
+[\c
+.BR \-dr ]
+[\c
+.BI \-arc \ resultClass\fr]
+[\c
+.BI \-ar \ role\fr]
+.I objectPath
+.LP
+.B wbemgp\t
+[\c
+.BR \-nl ]
+[\c
+.BR \-h ]
+[\c
+.BR \-t ]
+[\c
+.BR \-dx ]
+[\c
+.BR \-dr ]
+.I objectPath
+\c
+.I prop
+.LP
+.B wbemsp\t
+[\c
+.BR \-nl ]
+[\c
+.BR \-h ]
+[\c
+.BR \-t ]
+[\c
+.BR \-dx ]
+[\c
+.BR \-dr ]
+.I objectPath
+\c
+.I prop=value
+.LP
+.B wbemcm\t
+[\c
+.BR \-nl ]
+[\c
+.BR \-h ]
+[\c
+.BR \-t ]
+[\c
+.BR \-dx ]
+[\c
+.BR \-dr ]
+.I objectPath
+.I method[.param=value[,...]]
+.LP
+.B wbemcmx\t
+[\c
+.BR \-nl ]
+[\c
+.BR \-h ]
+[\c
+.BR \-t ]
+[\c
+.BR \-dx ]
+[\c
+.BR \-dr ]
+.I objectPath
+.I method[.param=value[,...]]
+.SH DESCRIPTION
+.I wbemcli
+is a command line based CIM Client. It uses one of the
+\fIgc|gcd|dc|ec|ecn|gi|ci|mi|di|ei|ein|ai|ain|ri|rin|gp|sp|cm|cmx\fP
+operations and the
+fully qualified path to the CIM Object to get to the host and
+execute the specified operation.
+This implementation is CIMOM library independent and can be used
+with all WBEM compliant CIMOM implementations.
+The \fIobjectPath\fP parameter is used to locate the CIM object and
+has the following format:
+.LP
+.B \t<scheme>://[user:pwd@]<host>:<port>/<namespace[/..]>:<classname>[.<key=value[,..]>]
+.TP
+The \fIobjectPath\fP should be enclosed in single quotes so that double quoted
+strings are perserved by the command line shell. Refer to the examples section.
+.TP
+The only scheme supported is http. Example:
+.B \thttp://krz:xyz@localhost:5988/root/cimv2:rpm_package.name=glibc
+.LP
+The \fIprop=value[,...]\fP parameter is used to specify <Property>=<Value>
+pairs for the ci, mi and sp operations.
+Only one <Property>=<Value> pair must be specified for the sp operation.
+.TP
+Example:
+.B stringProp="a string",booleanProp=true,numericProp=25
+.TP
+Arrays of property values are supported by specifying additional values
+separated by commas
+.TP
+Example:
+.B stringProp="a string","another string",numericProp=25,49,12
+.LP
+The \fIprop[,...]\fP parameter specifies the properties to be returned.
+One \fIprop\fP must be specified for the gp operation. For other operations
+this parameter is optional, if none are specified all properties will be
+returned.
+.TP
+Example:
+.B stringProp,booleanProp,numericProp
+.LP
+The \fImethod[.param=value[,...]\fP parameter is used to specify
+<Parameter>=<Value> pairs for the cm operation.
+.TP
+Example:
+.B Method2Execute.stringParam="a string",booleanParam=true,numericParam=25
+.TP
+Arrays of property values are supported by specifying additional values
+separated by commas
+.TP
+Example:
+.B Method2Execute.stringParam="a string","another string",numericParam=25,49,12
+.SH OPERATIONS:
+Supported operations are:
+.TP
+.B gc
+\tget class
+.TP
+.B gcd
+\tget class definition
+.TP
+.B dc
+\tdelete class
+.TP
+.B ec
+\tenumerate classes
+.TP
+.B ecn
+\tenumerate class names
+.TP
+.B gi
+\tget instance
+.TP
+.B ci
+\tcreate instance
+.TP
+.B mi
+\tmodify instance
+.TP
+.B di
+\tdelete instance
+.TP
+.B ei
+\tenumerate instances
+.TP
+.B ein
+\tenumerate instance names
+.TP
+.B ai
+\tenumerate association instances
+.TP
+.B ain
+\tenumerate association instance names
+.TP
+.B ri
+\tenumerate reference instances
+.TP
+.B rin
+\tenumerate reference instance names
+.TP
+.B gp
+\tget property
+.TP
+.B sp
+\tset property
+.TP
+.B cm
+\tcall method
+.TP
+.B cmx
+\tcall method (return XML)
+.SH OPTIONS
+.TP
+.B \-h
+Print a help message
+.TP
+.B \-nl
+Start a new line for every property returned
+.TP
+.B \-t
+Append array ([]), reference (&) and key property (#) indicators to property names
+.TP
+.B \-cte
+Enable support for chunked responses from CIMOM
+.TP
+.B \-v
+Show version information
+.TP
+.B \-dx
+Show XML messages payload as received from CIMOM
+.TP
+.B \-dr
+Delineate references with { } pairs
+.TP
+.B \-noverify
+Do not verify the server certificate for https URLs (useful for testing)
+.TP
+.B \-cacert
+CA certificate file (required for https URLS unless \-noverify 
+is specified)
+.TP
+.B \-clientcert
+Client certificate file (if the CIM server requires client certificates)
+.TP
+.B \-clientkey
+Client private key file (required if \-clientcert is specified)
+.TP
+.B \-ac
+\tassociation class name (ai, ain only)
+.TP
+.B \-arc
+\tresult class name (ai, ain, rin, ri only)
+.TP
+.B \-ar
+\trole name (ai, ain, rin, ri only)
+.TP
+.B \-arr
+\tresult role name (ai, ain only)
+.SH LIBRARIES
+.B wbemcli
+requires either libghttp, libwww, or winhttp, depending on build options used.
+.SH Example
+To get all instances of rpm_packages, i.e. all installed rpm packages on
+the local system, the following command can be used:
+.IP "" 1
+.B wbemcli ei 'http://localhost:5988/root/cimv2:rpm_package'
+.PP
+The get instance operation can be specified to get more information about
+a certain package:
+.IP "" 1
+.B wbemcli gi 'http://localhost:5988/root/cimv2:rpm_package.name="glibc"'
+.pp
+The create instance (ci) operation can be called using the following format example.  Property values can also be specified/add to the sytax.
+.IP "" 1
+.B wbemcli ci 'http://localhost:5988/root/cimv2:TST_InstanceProperties.CreationClassName="TST_InstanceProperties",Id="Instance #2"' 'CreationClassName="TST_InstanceProperties",Id="Instance #2",Property_string2="This is instance#2",Property_uint8=250'
+.IP "" 1
+.pp
+More command line examples can be found from the wbemcli/samples directory.  
+.IP "" 1
+.SH Host indirection support
+The scheme and host specification in the object path can be replaced by an
+arbitrary token that
+will be used to locate the proper scheme and host specification
+in ./wbemcli.ind
+or any file specified via the WBEMCLI_IND environment variable.
+The format of this file is as follows:
+.TP
+.B
+	<token>: <scheme>://[user:pwd@]<host>:<port>
+.TP
+Assuming the following entry in ./wbemcli.ind:
+.TP
+.B
+	myCimom: http://localhost:5988
+.TP
+The example in the previous section can then be specified as:
+.IP "" 1
+.B
+	wbemcli gi 'myCimom/root/cimv2:rpm_package.name="glibc"'
+.PP
+
+.SH FILES
+.TP
+.I /usr/local/share/sblim-wbemcli/cacert.pem
+The default CA certificate file. Can be overriden with \-cacert.
+.SH AUTHOR
+Adrian Schuur <schuur@de.ibm.com>
+.SH BUGS
+The SBLIM project maintains a mailing list to which you should direct all
+questions regarding sfcb, sfcc, wbemcli, or any of the SBLIM providers.
+To subscribe to this mailing list visit
+.IP
+http://lists.sourceforge.net/lists/listinfo/sblim-issues
+.PP
+The SBLIM Project Bug tracking page can be found at
+.IP
+http://sourceforge.net/tracker/?group_id=128809&atid=712784
+.SH COPYRIGHT
+(C) Copyright IBM Corp. 2002, 2004, 2005, 2009
+.SH AVAILABILITY
+wbemcli is a part of the SBLIM project. The most recent version is
+available on the web at
+.IP
+http://sblim.sourceforge.net/
+.SH "SEE ALSO"
+.BR cimserver (1)
+

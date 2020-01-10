@@ -1,0 +1,850 @@
+2009-06-24  Tyrel Datwyler <tyreld@us.ibm.com>
+
+	* NEWS:
+
+	Updated NEWS
+
+2009-06-24  Tyrel Datwyler <tyreld@us.ibm.com>
+
+	* CimXml.cpp:
+
+	Fixed 2811674: apostorphe not unescaped correctly in xml
+
+2009-06-24  Tyrel Datwyler <tyreld@us.ibm.com>
+
+	* CimXml.cpp, CimXml.h, NEWS, main.cpp:
+
+	Fixed 2418476: gi quotes objetname in ref properties
+
+2009-06-22  Tyrel Datwyler <tyreld@us.ibm.com>
+
+	* CimXml.cpp:
+
+	Fixed possible buffer overflow by strcat
+
+2009-06-22  Tyrel Datwyler <tyreld@us.ibm.com>
+
+	* CimXml.cpp:
+
+	Fixed 2805214: should escape backslash character in CimXml::unescapeXml()
+	    (revised patch)
+
+2009-06-19  Tyrel Datwyler <tyreld@us.ibm.com>
+
+	* NEWS, main.cpp, man/wbemcli.1.pre.in:
+
+	Fixed 2809281: update man page with chunking option
+
+2009-06-19  Tyrel Datwyler <tyreld@us.ibm.com>
+
+	* CimXml.cpp, NEWS, contributions.txt:
+
+	Fixed 2100880: No Namespace in Response (patch by Gokula Kannan)
+
+2009-06-19  Tyrel Datwyler <tyreld@us.ibm.com>
+
+	* CimXml.cpp:
+
+	Fixed 2805214: should escape backslash character in CimXml::unescapeXml()
+	(patch by Anon Sricharoenchai)
+
+2009-03-25  Tyrel Datwyler <tyreld@us.ibm.com>
+
+	* INSTALL:
+
+	INSTALL is automatically generated during autoconfiscation
+
+2009-03-20  Tyrel Datwyler <tyreld@us.ibm.com>
+
+	* COPYING, ChangeLog, NEWS:
+
+	[ 2698278 ] wbemcli: COPYING still contains CPL test
+
+2009-03-04  Tyrel Datwyler <tyreld@us.ibm.com>
+
+	* ChangeLog, CimCurl.cpp, CimXml.cpp, NEWS, contributions.txt:
+
+	[ 2569362 ] wbemcli: support for OpenSolaris
+
+2009-02-09  Tyrel Datwyler <tyreld@us.ibm.com>
+
+	* CimXml.cpp, ChangeLog:
+
+	[ 2108395 ] wbemcli segfaults on cm when objectpath is just classname
+
+2009-02-05  Tyrel Datwyler <tyreld@us.ibm.com>
+
+	* ChangeLog, CimXml.cpp, NEWS, configure.ac:
+
+	[ 2108395 ] wbemcli segfaults on cm when objectpath is just classname
+
+2008-12-11  Tyrel Datwyler <tyreld@us.ibm.com>
+
+	* .cvsignore:
+
+	updated .cvsignore with generated man page and rpm spec file
+
+2008-12-11  Tyrel Datwyler <tyreld@us.ibm.com>
+
+	* ChangeLog, NEWS:
+
+	[ 2418867 ] wbemcli: remove deprecated const string to char conversion
+
+2008-12-11  Tyrel Datwyler <tyreld@us.ibm.com>
+
+	* CimCurl.cpp, CimCurl.h, CimWinHttp.cpp, CimWinHttp.h, CimXml.cpp,
+	  CimXml.h, Cimghttp.cpp, Cimghttp.h, Cimwww.cpp, Cimwww.h,
+	  main.cpp:
+
+	[ 2418867 ] wbemcli: remove deprecated const string to char conversion
+
+2008-10-15  Tyrel Datwyler <tyreld@us.ibm.com>
+
+	* ChangeLog, NEWS:
+
+	[2169489] wbemcli: fails to compile with gcc 3.3.3
+
+2008-10-15  Tyrel Datwyler <tyreld@us.ibm.com>
+
+	* CimXml.h:
+
+	[2169489] wbemcli: fails to compile with gcc 3.3.3
+
+2008-10-02  Tyrel Datwyler <tyreld@us.ibm.com>
+
+	* ChangeLog, CimXml.h, NEWS:
+
+	[ 2140320 ] Potentially unnecessary ansidecl.h inclusion
+
+2008-08-07  Tyrel Datwyler <tyreld@us.ibm.com>
+
+	* ChangeLog, CimCurl.cpp, CimCurl.h, CimWinHttp.cpp, CimWinHttp.h,
+	  CimXml.cpp, CimXml.h, CimXml.i, Cimghttp.cpp, Cimghttp.h,
+	  Cimwww.cpp, Cimwww.h, NEWS, README.pycli, SunSMC.cpp, cimcli.py,
+	  configure.ac, license.html, main.cpp, sblim-wbemcli.rh.spec,
+	  sblim-wbemcli.spec.in, stdhdr.i:
+
+	[ 2041983 ] wbemcli: Change license from CPL to EPL
+
+2008-08-06  Tyrel Datwyler <tyreld@us.ibm.com>
+
+	* contributions.txt:
+
+	The format for the contributions.txt file was taken from sfcb. Fixed header of
+	the file to refer to wbemcli and sfcb.
+
+2008-08-05  Tyrel Datwyler <tyreld@us.ibm.com>
+
+	* main.cpp:
+
+	[ 1783603 ] wbemcli reports incorrect namespace
+
+2008-07-30  Tyrel Datwyler <tyreld@us.ibm.com>
+
+	* ChangeLog, CimXml.cpp, NEWS, contributions.txt:
+
+	[ 2032703 ] wbemcli crashes on malformed xml response from server
+
+2008-07-30  Tyrel Datwyler <tyreld@us.ibm.com>
+
+	* ChangeLog, NEWS:
+
+	[ 2032716 ] wbemcli fails to compile with gcc 4.3.1
+
+2008-07-30  Tyrel Datwyler <tyreld@us.ibm.com>
+
+	* CimCurl.cpp, CimXml.cpp, contributions.txt, main.cpp:
+
+	[ 2032716 ] wbemcli fails to compile with gcc 4.3.1
+
+2008-07-30  Tyrel Datwyler <tyreld@us.ibm.com>
+
+	* contributions.txt:
+
+	Need a place to document contributions from the open source community.
+
+2008-07-28  Tyrel Datwyler <tyreld@us.ibm.com>
+
+	* NEWS, configure.ac, sblim-wbemcli.rh.spec:
+
+	Incremented version numbers for 1.5.4 release.
+
+2008-07-28  Tyrel Datwyler <tyreld@us.ibm.com>
+
+	* ChangeLog, CimXml.cpp, CimXml.h, NEWS, main.cpp:
+
+	[ 1783603 ] wbemcli reports incorrect namespace
+
+2008-07-09  Tyrel Datwyler <tyreld@us.ibm.com>
+
+	* ChangeLog, NEWS, main.cpp:
+
+	[ 1756553 ] wbemcli: doesn't accept classes for ain,ai,rin,ri operations
+
+2008-07-09  Tyrel Datwyler <tyreld@us.ibm.com>
+
+	* ChangeLog, CimXml.cpp, NEWS:
+
+	[ 1616370 ] wbemcli: null property display/setting unlogical
+
+2008-07-09  Tyrel Datwyler <tyreld@us.ibm.com>
+
+	* ChangeLog, CimXml.cpp, NEWS, configure.ac:
+
+	[ 1979654 ] wbemcli: ec of CIM_InstIndication w/EmbeddedObj fails
+
+2007-06-04  Tyrel Datwyler <tyreld@us.ibm.com>
+
+	* README, man/wbemcli.1.pre.in:
+
+	[ 1719163 ] wbemcli: is guessing wrong on key value type
+
+	    Updated README and manpage to reflect that single quotes need to be used
+	    to prevent the shell from striping double quotes off quoted string
+	    properties.
+
+2007-06-04  Tyrel Datwyler <tyreld@us.ibm.com>
+
+	* ChangeLog, CimXml.cpp, NEWS:
+
+	[ 1728703 ] wbemcli: gcd doesn't report error when class not found
+
+2007-05-02  Tyrel Datwyler <tyreld@us.ibm.com>
+
+	* ChangeLog, CimXml.cpp, NEWS:
+
+	[ 1710167 ] wbemcli: namespace is not parsed from ref property
+
+2007-04-20  Tyrel Datwyler <tyreld@us.ibm.com>
+
+	* ChangeLog, CimXml.cpp, NEWS:
+
+	[ 1698325 ] wbemcli: enumeration of association instances does not work
+
+2007-04-02  Heidi Eckhart <heidineu@de.ibm.com>
+
+	* ChangeLog, CimXml.cpp, NEWS:
+
+	[1692696]: fixed parsing of reference parameters for mi
+
+2007-04-02  Heidi Eckhart <heidineu@de.ibm.com>
+
+	* ChangeLog, CimXml.cpp, NEWS:
+
+	[1690542] fixed parsing of reference parameters for ci and di
+
+2007-03-28  Chris Buccella <buccella@vnet.linux.ibm.com>
+
+	* ChangeLog, CimXml.cpp, NEWS:
+
+	Bug 1689497: specify username and port without password
+
+2007-03-28  Chris Buccella <buccella@vnet.linux.ibm.com>
+
+	* ChangeLog, CimXml.cpp, NEWS:
+
+	added support for IPv6 hosts
+
+2007-03-27  Heidi Eckhart <heidineu@de.ibm.com>
+
+	* ChangeLog, CimXml.cpp, CimXml.h, NEWS:
+
+	[1671996]: fixed handling of reference values for extrinsic methods
+
+2007-02-05  Heidi Eckhart <heidineu@de.ibm.com>
+
+	* configure.ac:
+
+	[1652347] fixes handling of VALUE.REFERENCE blocks
+
+2007-02-05  Heidi Eckhart <heidineu@de.ibm.com>
+
+	* ChangeLog, CimXml.cpp, CimXml.h, NEWS:
+
+	[1652347] fixes handling of VALUE.REFERENCE blocks
+
+2007-01-10  Heidi Eckhart <heidineu@de.ibm.com>
+
+	* ChangeLog, CimXml.cpp, NEWS:
+
+	[1632746] added error message for incorrect input values
+
+2006-12-07  Heidi Eckhart <heidineu@de.ibm.com>
+
+	* CimXml.cpp, CimXml.h:
+
+	[1611024]: enabled support for create/modifyInstance for associations
+
+2006-10-24  Heidi Eckhart <heidineu@de.ibm.com>
+
+	* CimXml.cpp, CimXml.h:
+
+	#1560865 fixed: createInstance and modifyInstance does not correctly deal
+	with arrays
+
+2006-03-24  Viktor Mihajlovski <mihajlov@de.ibm.com>
+
+	* ChangeLog, CimCurl.cpp, NEWS, configure.ac:
+
+	[ 1457924 ] Various Compile Warnings.
+	Fix by mrueckert@suse.de: added parenthesis in if statement.
+
+2005-11-21  Viktor Mihajlovski <mihajlov@de.ibm.com>
+
+	* ChangeLog, CimCurl.cpp, Makefile.am, NEWS, configure.ac,
+	  main.cpp, sblim-wbemcli.rh.spec, sblim-wbemcli.spec.in,
+	  man/wbemcli.1.pre.in:
+
+	Bugs fixed: 1362712, 1362716. Force SSL V3 usage and use a default
+	certificate bundle.
+
+2005-10-28  Viktor Mihajlovski <mihajlov@de.ibm.com>
+
+	* sblim-wbemcli.spec.in:
+
+	Minor enhancements.
+
+2005-09-29  Viktor Mihajlovski <mihajlov@de.ibm.com>
+
+	* CimCurl.cpp, CimCurl.h, CimWinHttp.cpp, CimWinHttp.h, CimXml.h,
+	  Cimghttp.cpp, Cimghttp.h, Cimwww.cpp, Cimwww.h, README,
+	  configure.ac, main.cpp, man/wbemcli.1.pre.in:
+
+	Bugs: 1308031. Added support for server certificate verification and
+	client side certificates.
+
+2005-09-29  Viktor Mihajlovski <mihajlov@de.ibm.com>
+
+	* ChangeLog, NEWS:
+
+	Currency Updates.
+
+2005-09-28  Tyrel Datwyler <tyreld@us.ibm.com>
+
+	* ChangeLog, Makefile.am, NEWS, configure.ac, man/wbemcli.1.pre.in:
+
+	Bug 1221942: Fixed typo in man page. Updated the way man pages are handled so
+		that version and install path information can be injected into the
+		man page at build time.
+
+2005-09-28  Tyrel Datwyler <tyreld@us.ibm.com>
+
+	* wbemcli.1:
+
+	Bug 1221942: Moving man pages to a dedicated man directory.
+
+2005-09-27  Adrian Schuur
+
+	* CimXml.cpp:
+
+	Fixed 1305968 invalid xml generation for enumerate classes
+
+2005-09-19  Lisa Chan
+
+	* wbemcli.1:
+
+	#modified format on example: ci
+
+2005-09-19  Lisa Chan
+
+	* samples/: create_instance_info, create_instance_info.output:
+
+	#1295687
+
+2005-09-19  Lisa Chan
+
+	* wbemcli.1:
+
+	#modification to 1295687
+
+2005-09-19  Lisa Chan
+
+	* wbemcli.1:
+
+	#1295687
+
+2005-07-28  Viktor Mihajlovski <mihajlov@de.ibm.com>
+
+	* sblim-wbemcli.spec.in:
+
+	Removed superfluous changelog entry.
+
+2005-07-28  Viktor Mihajlovski <mihajlov@de.ibm.com>
+
+	* configure.ac, sblim-wbemcli.spec.in:
+
+	Editorial changes in RPM spec file.
+
+2005-07-13  Viktor Mihajlovski <mihajlov@de.ibm.com>
+
+	* ChangeLog, NEWS, configure.ac, sblim-wbemcli.spec.in:
+
+	Bugs fixed: 1236584. Added tarball name to configure.ac. Changed
+	copyright to License.
+
+2005-07-12  Adrian Schuur
+
+	* CimCurl.cpp, CimCurl.h, CimXml.cpp, CimXml.h, main.cpp:
+
+	Added chunking support - must use -cte switch at wbemcli invocation time to activate
+
+2005-06-02  Gareth Bestor <bestor@us.ibm.com>
+
+	* Makefile.am:
+
+	fix for http://sourceforge.net/tracker/index.php?func=detail&aid=1200308&group_id=128809&atid=712784
+
+2005-06-02  Gareth Bestor <bestor@us.ibm.com>
+
+	* Makefile.am:
+
+	added NOP makefile entries for postinstall and runtest, so conform a bit
+	cleaner to typical SBLIM autoconf package install procedure.
+
+2005-06-01  Viktor Mihajlovski <mihajlov@de.ibm.com>
+
+	* ChangeLog, CimXml.cpp, NEWS, configure.ac:
+
+	Bugs fixed: incorrect key type classification.
+
+2005-05-12  Viktor Mihajlovski <mihajlov@de.ibm.com>
+
+	* ChangeLog, CimCurl.cpp, NEWS, configure.ac:
+
+	Bug 1200421: suppress Accept header to allow interoperation with OW 3.1.0.
+
+2005-05-02  Viktor Mihajlovski <mihajlov@de.ibm.com>
+
+	* ChangeLog, CimCurl.cpp, configure.ac:
+
+	Bug 1193798: suppressed the Expect: header. Furter, corrected the
+	libcurl version checks and added debugging support via CURLDEBUG
+	environment variable.
+
+2005-04-05  Viktor Mihajlovski <mihajlov@de.ibm.com>
+
+	* Makefile.am, configure.ac, sblim-wbemcli.spec.in,
+	  contrib/sblim-wbemcli.spec.in:
+
+	Modified spec file location for RPM build facilitation.
+
+2004-12-17  Viktor Mihajlovski <mihajlov@de.ibm.com>
+
+	* configure.ac:
+
+	Updated release number for CimCurl bugfix.
+
+2004-12-09  Viktor Mihajlovski <mihajlov@de.ibm.com>
+
+	* contrib/.cvsignore:
+
+	type in .cvsignore fixed.
+
+2004-12-09  Viktor Mihajlovski <mihajlov@de.ibm.com>
+
+	* .cvsignore, CimCurl.cpp, contrib/.cvsignore:
+
+	PKW: Fix for multi-request calls (like ecn) authentication.
+
+2004-12-07  Viktor Mihajlovski <mihajlov@de.ibm.com>
+
+	* CimCurl.cpp, configure.ac, contrib/sblim-wbemcli.spec.in:
+
+	Updates for better backward compatibility.
+
+2004-12-06  Viktor Mihajlovski <mihajlov@de.ibm.com>
+
+	* Makefile.am:
+
+	Fixed Makefile.am.
+
+2004-12-06  Viktor Mihajlovski <mihajlov@de.ibm.com>
+
+	* CimCurl.cpp, CimCurl.h, NEWS, configure.ac, main.cpp:
+
+	Minor check in fixes.
+
+2004-12-06  Viktor Mihajlovski <mihajlov@de.ibm.com>
+
+	* AUTHORS, CimWinHttp.cpp, CimXml.cpp, CimXml.h, Cimghttp.cpp,
+	  Cimwww.cpp, configure.ac, main.cpp:
+
+	Kudos go to Philip K. Warren for contributing libcurl support.
+
+2004-12-02  Viktor Mihajlovski <mihajlov@de.ibm.com>
+
+	* CimXml.h:
+
+	Update for gcc 3.4.2 compatibility.
+
+2004-10-14  Viktor Mihajlovski <mihajlov@de.ibm.com>
+
+	* configure.ac, contrib/sblim-wbemcli.spec.in:
+
+	Fix the configure.ac checking anf the RPM spec file
+
+2004-10-14  Viktor Mihajlovski <mihajlov@de.ibm.com>
+
+	* AUTHORS, COPYING, ChangeLog, CimXml_wrap.cpp, CimXml_wrap.cxx,
+	  INSTALL, Makefile.am, NEWS, README, autoconfiscate.sh,
+	  configure.ac, main.cpp, makefile, contrib/sblim-wbemcli.spec,
+	  contrib/sblim-wbemcli.spec.in:
+
+	Autoconfiscated.
+
+2004-07-12  Viktor Mihajlovski <mihajlov@de.ibm.com>
+
+	* CimXml.cpp:
+
+	Fixed the parsing fix.
+
+2004-06-23  Viktor Mihajlovski <mihajlov@de.ibm.com>
+
+	* CimXml.cpp:
+
+	Parsing fix.
+
+2004-06-18  Viktor Mihajlovski <mihajlov@de.ibm.com>
+
+	* CimXml.cpp:
+
+	Insert CIM symbolic error names to the description, if the CIMOM isn't
+	returning them by itself. This happens with OpenWBEM.
+
+2004-06-14  Heidi Eckhart <heidineu@de.ibm.com>
+
+	* CimXml.cpp:
+
+	returning empty exception in case of empty result set on ei / ein against
+	OpenWBEM fixed
+
+2004-06-09  Heidi Eckhart <heidineu@de.ibm.com>
+
+	* Cimghttp.cpp:
+
+	fixed seg fault when running in unauthorized mode against authorization
+	required CIMOM
+
+2004-05-28  Viktor Mihajlovski <mihajlov@de.ibm.com>
+
+	* CimXml.cpp:
+
+	Fixed modify instance problem.
+
+2004-04-07  Viktor Mihajlovski <mihajlov@de.ibm.com>
+
+	* contrib/: sblim-wbemcli-1.4.spec, sblim-wbemcli.spec:
+
+	Renamed spec file.
+
+2004-02-18  Viktor Mihajlovski <mihajlov@de.ibm.com>
+
+	* contrib/sblim-wbemcli-1.4.spec:
+
+	Added RPM spec file.
+
+2004-02-12  Viktor Mihajlovski <mihajlov@de.ibm.com>
+
+	* CimXml.h:
+
+	Bugfix: need to include ansidecl.h in order to enable GCC_VERSION
+
+2004-02-12  Viktor Mihajlovski <mihajlov@de.ibm.com>
+
+	* CimXml.h, main.cpp:
+
+	Added conditional compile sections to support backlevel (<3.x) versions of
+	GCC.
+
+2004-02-02  Viktor Mihajlovski <mihajlov@de.ibm.com>
+
+	* CimWinHttp.cpp, CimWinHttp.h, CimXml.cpp, CimXml.h, Cimghttp.cpp,
+	  Cimghttp.h, Cimwww.cpp, Cimwww.h, README, SunSMC.cpp, main.cpp,
+	  makefile, wbemcli.1:
+
+	Incorporated Steve Shepherd's new code: method invocation and get class
+	definition.
+	Some formatting and bug fixing changes.
+
+2003-11-03  Adrian Schuur
+
+	* CimXml.cpp:
+
+	Removed enclosing quotes in string <value> .. </value> sequences
+
+2003-11-03  Heidi Eckhart <heidineu@de.ibm.com>
+
+	* main.cpp, makefile:
+
+	fixed return behaviour if no instances were found; test suite relies on
+	the fact, that nothing is returned (former empty line)
+
+2003-09-15  Heidi Eckhart <heidineu@de.ibm.com>
+
+	* CimXml.cpp, CimXml.h, CimXml_wrap.cxx, Cimghttp.cpp, Cimghttp.h,
+	  Cimwww.cpp, Cimwww.h, README, README.pycli, main.cpp, makefile,
+	  stdhdr.i:
+
+	updated Copyright statement
+
+2003-08-27  Adrian Schuur
+
+	* CimXml.h:
+
+	changed includeQualifiers to false for most operations
+
+2003-08-12  Adrian Schuur
+
+	* CimXml.cpp, CimXml.h, main.cpp:
+
+	Fixed missing IRETURNVALUE situation for enumerations
+
+2003-08-04  Adrian Schuur
+
+	* CimXml.i, CimXml.py, CimXml_wrap.cxx, README.pycli, cimcli.py:
+
+	Python support for wbemcli is now complete - Many thanks to David T Eger.
+	This extension enables you to write management applications using the Python language.
+	See README.pycli for details and examples
+
+2003-07-31  Adrian Schuur
+
+	* CimXml.cpp, CimXml.h, Cimwww.cpp, main.cpp:
+
+	Fixed create instance problems
+	Fixed PropertyXml problems
+	Added EmptyValue excpetion
+	Fixed exception reporting problems
+
+2003-07-30  Adrian Schuur
+
+	* CimXml.cpp, CimXml.h, main.cpp, makefile:
+
+	Added additional dteger fixes
+
+2003-07-29  Adrian Schuur
+
+	* CimXml.h, CimXml.i, CimXml.py, CimXml_wrap.cxx, makefile:
+
+	Added Python wrapper support
+	Use "make clipy" to compile the wrapper
+
+2003-07-29  Adrian Schuur
+
+	* CimXml.cpp, CimXml.h, Cimghttp.cpp, Cimghttp.h, Cimwww.cpp,
+	  Cimwww.h, main.cpp, makefile:
+
+	Major version update
+	David Eger reworked wbemcli inprepartion for Python support
+	Many memory leaks removed - vielen Dank David !
+	Better error diagnostics for libwww - Thanks to Viktor !
+	Libghttp causes hangups in certain error situations
+	Therefire it is recomended to use libwww instead.
+
+2003-07-28  Viktor Mihajlovski <mihajlov@de.ibm.com>
+
+	* Cimwww.cpp, Cimwww.h, makefile:
+
+	Updated libwww code to convey error information from the protocol modules.
+
+2003-07-25  Adrian Schuur
+
+	* makefile:
+
+	fixed INSTALLROOT error
+
+2003-07-25  Adrian Schuur
+
+	* CimXml.cpp:
+
+	Fixed gi for assoctiations - <HOST></HOST> and <LOCALINTANCEPATH/> incorrectly
+
+2003-07-09  Adrian Schuur
+
+	* CimXml.cpp, CimXml.h:
+
+	Fixed SNIA/Pegasus toleration for asscoiatiors output (localinstancepath vs instancepath)
+
+2003-07-07  Adrian Schuur
+
+	* CimXml.cpp, CimXml.h, main.cpp:
+
+	Updated associators/refrences call to be compatible with Pegasus
+
+2003-07-03  Viktor Mihajlovski <mihajlov@de.ibm.com>
+
+	* makefile:
+
+	Support for RPM build enhanced.
+
+2003-06-12  Adrian Schuur
+
+	* CimXml.cpp, CimXml.h, main.cpp, makefile, wbemcli.1:
+
+	New version 1.2
+	Added setProperty and getProperty operations
+	Added propertyList support for most operations
+	Extended -t option  flag key properties
+	Reworked man page
+
+2003-05-16  Viktor Mihajlovski <mihajlov@de.ibm.com>
+
+	* samples/: list_instrumented_classes,
+	  list_instrumented_classes.output, show_network_info,
+	  show_network_info.output, show_processor_info,
+	  show_processor_info.output:
+
+	Added usage samples.
+
+2003-05-08  Adrian Schuur
+
+	* CimXml.cpp, CimXml.h, main.cpp, makefile, wbemcli.1:
+
+	Corrected association instance objectpath parsing
+
+2003-05-07  Adrian Schuur
+
+	* CimXml.cpp, makefile:
+
+	Fixed segemnt exception when using indirection and key parameters
+
+2003-04-14  Viktor Mihajlovski <mihajlov@de.ibm.com>
+
+	* CimXml.cpp, Cimwww.cpp, README, main.cpp, makefile, wbemcli.ind:
+
+	Merge Adrian's and Viktor's code. Add sample indirection file.
+
+2003-04-14  Viktor Mihajlovski <mihajlov@de.ibm.com>
+
+	* Cimwww.cpp, Cimwww.h, README, main.cpp, makefile:
+
+	Added support for W3C libwww HTTP library.
+
+2003-04-11  Adrian Schuur
+
+	* CimXml.cpp:
+
+	Removed debuging messages
+
+2003-04-11  Adrian Schuur
+
+	* CimXml.cpp:
+
+	Stripping trailing blanks from wbemcli.ind records
+
+2003-04-11  Adrian Schuur
+
+	* CimXml.cpp, CimXml.h, main.cpp, wbemcli.1:
+
+	Added protocol and host name indirection support
+
+2003-04-07  Heidi Eckhart <heidineu@de.ibm.com>
+
+	* license.html:
+
+	update to version 1.0
+
+2003-04-03  Viktor Mihajlovski <mihajlov@de.ibm.com>
+
+	* CimXml.cpp, CimXml.h, Cimghttp.cpp, Cimghttp.h, main.cpp,
+	  makefile:
+
+	Restructured code in preparation of support for alternative HTTP protocol
+	libraries. Libghttp stuff is now encapsulated in the Cimghttp.* files.
+
+2003-04-01  Heidi Eckhart <heidineu@de.ibm.com>
+
+	* CimXml.cpp, CimXml.h, main.cpp:
+
+	added support for role and resultRole parameter to associatorNames
+
+2003-03-26  Adrian Schuur
+
+	* CimXml.cpp, CimXml.h, main.cpp:
+
+	Added proper namespace and iostream declarations
+
+2003-03-18  Heidi Eckhart <heidineu@de.ibm.com>
+
+	* CimXml.cpp, CimXml.h, main.cpp:
+
+	support for Associator Interface and parameter assocClass,resultClass,
+	resultRole and Role implemented by Adrian
+
+2003-02-21  Heidi Eckhart <heidineu@de.ibm.com>
+
+	* CimXml.cpp, CimXml.h, main.cpp, makefile:
+
+	added support for Associator Provider Interface; associatorNames(),
+	referenceNames() ... run stable; associators() and references() ...
+	still buggy
+
+2003-02-19  Heidi Eckhart <heidineu@de.ibm.com>
+
+	* CimXml.cpp:
+
+	fixed bug in preparing URL for further processes
+
+2002-08-13  Viktor Mihajlovski <mihajlov@de.ibm.com>
+
+	* CimXml.cpp, CimXml.h, README, main.cpp, makefile, stdhdr.i,
+	  wbemcli.1:
+
+	Reorganized code, Support for Caldera.
+
+2002-07-08  Viktor Mihajlovski <mihajlov@de.ibm.com>
+
+	* CimXml.cpp:
+
+	Modified version string.
+
+2002-07-05  sedgewick_de
+
+	* CimXml.cpp:
+
+	added -ow flag for openwbem handling
+
+2002-05-29  Heidi Eckhart <heidineu@de.ibm.com>
+
+	* CimXml.cpp, README:
+
+	undo of last auth fix
+
+2002-05-23  Heidi Eckhart <heidineu@de.ibm.com>
+
+	* CimXml.cpp, README:
+
+	minor bug in auth (user:password) fixed
+
+2002-05-23  Heidi Eckhart <heidineu@de.ibm.com>
+
+	* README:
+
+	added usage documentation
+
+2002-05-23  Heidi Eckhart <heidineu@de.ibm.com>
+
+	* CimXml.cpp, makefile:
+
+	minor bug in auth (user:passowrd) fixed
+
+2002-04-11  sedgewick_de
+
+	* CimXml.cpp, CimXml.h:
+
+	FIX: deleteInstance does not contain IRETURNVALUE
+
+2002-04-04  Viktor Mihajlovski <mihajlov@de.ibm.com>
+
+	* CimXml.cpp, CimXml.h, license.html, makefile, stdhdr.i,
+	  wbemcli.1:
+
+	Initial revision
+
+2002-04-04  Viktor Mihajlovski <mihajlov@de.ibm.com>
+
+	* CimXml.cpp, CimXml.h, license.html, makefile, stdhdr.i,
+	  wbemcli.1:
+
+	WBEM Command Line Interface
+
