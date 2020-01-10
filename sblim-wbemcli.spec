@@ -1,6 +1,6 @@
 Name:           sblim-wbemcli
 Version:        1.6.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        SBLIM WBEM Command Line Interface
 
 Group:          Applications/System
@@ -8,12 +8,12 @@ License:        EPL
 URL:            http://sblim.wiki.sourceforge.net/
 Source0:        http://downloads.sourceforge.net/sblim/%{name}-%{version}.tar.bz2
 Patch0:         sblim-wbemcli-1.5.1-gcc43.patch
+Patch1:         sblim-wbemcli-1.6.1-https-segfaults.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires:  curl-devel >= 7.9.3
 BuildRequires:  binutils-devel >= 2.17.50.0.3-4
 Requires:       curl >= 7.9.3
-Requires:       tog-pegasus
 
 %description
 WBEM Command Line Interface is a standalone, command line WBEM client. It is
@@ -23,6 +23,7 @@ scripts.
 %prep
 %setup -q
 %patch0 -p1 -b .gcc43
+%patch1 -p1 -b .segfaults.patch
 
 %build
 %configure CACERT=/etc/Pegasus/client.pem
@@ -45,6 +46,13 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}
 
 %changelog
+* Mon Jun 17 2013 Vitezslav Crhonek <vcrhonek@redhat.com> - 1.6.1-2
+- Fix wrong usage of libcurl API, which caused segfaults when wbemcli was used
+  with https scheme (patch by kdudka@redhat.com)
+  Resolves: #868905
+- Remove tog-pegasus requires
+  Resolves: #745264
+
 * Wed Jun 30 2010 Vitezslav Crhonek <vcrhonek@redhat.com> - 1.6.1-1
 - Update to sblim-wbemcli-1.6.1
 
