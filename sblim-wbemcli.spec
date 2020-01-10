@@ -1,6 +1,6 @@
 Name:           sblim-wbemcli
 Version:        1.6.1
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        SBLIM WBEM Command Line Interface
 
 Group:          Applications/System
@@ -9,6 +9,7 @@ URL:            http://sblim.wiki.sourceforge.net/
 Source0:        http://downloads.sourceforge.net/sblim/%{name}-%{version}.tar.bz2
 Patch0:         sblim-wbemcli-1.5.1-gcc43.patch
 Patch1:         sblim-wbemcli-1.6.1-https-segfaults.patch
+Patch2:         sblim-wbemcli-1.6.1-ssl-proto-option.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires:  curl-devel >= 7.9.3
@@ -24,6 +25,7 @@ scripts.
 %setup -q
 %patch0 -p1 -b .gcc43
 %patch1 -p1 -b .segfaults.patch
+%patch2 -p1 -b .ssl-proto-option
 
 %build
 %configure CACERT=/etc/Pegasus/client.pem
@@ -46,6 +48,11 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/%{name}
 
 %changelog
+* Tue Dec 01 2015 Vitezslav Crhonek <vcrhonek@redhat.com> - 1.6.1-3
+- Backport (slightly modified) configurable SSL version feature from upstream,
+  update man page accordingly
+  Resolves: #1239117
+
 * Mon Jun 17 2013 Vitezslav Crhonek <vcrhonek@redhat.com> - 1.6.1-2
 - Fix wrong usage of libcurl API, which caused segfaults when wbemcli was used
   with https scheme (patch by kdudka@redhat.com)
