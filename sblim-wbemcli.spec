@@ -1,6 +1,6 @@
 Name:           sblim-wbemcli
 Version:        1.6.2
-Release:        11%{?dist}
+Release:        7%{?dist}
 Summary:        SBLIM WBEM Command Line Interface
 
 Group:          Applications/System
@@ -10,8 +10,6 @@ Source0:        http://downloads.sourceforge.net/sblim/%{name}-%{version}.tar.bz
 Patch0:         sblim-wbemcli-1.5.1-gcc43.patch
 Patch1:         sblim-wbemcli-1.6.2-gcc47.patch
 Patch2:         sblim-wbemcli-1.6.2-https-segfaults.patch
-Patch3:         sblim-wbemcli-1.6.2-ssl-proto-option.patch
-Patch4:         sblim-wbemcli-1.6.2-dot-in-passwd.patch
 
 BuildRequires:  curl-devel >= 7.9.3
 BuildRequires:  binutils-devel >= 2.17.50.0.3-4
@@ -27,11 +25,9 @@ scripts.
 %patch0 -p1 -b .gcc43
 %patch1 -p1 -b .gcc47
 %patch2 -p1 -b .https-segfaults
-%patch3 -p1 -b .ssl-proto-option
-%patch4 -p1 -b .dot-in-passwd
 
 %build
-%configure CACERT=/etc/pki/Pegasus/client.pem
+%configure CACERT=/etc/Pegasus/client.pem
 make %{?_smp_mflags}
 
 %install
@@ -44,24 +40,6 @@ mkdir -p $RPM_BUILD_ROOT/%{_datadir}/%{name}
 %{_datadir}/%{name}
 
 %changelog
-* Wed Feb 08 2017 Vitezslav Crhonek <vcrhonek@redhat.com> - 1.6.2-11
-- Update default CA certificate file path due to recent changes in tog-pegasus
-  Resolves: #1320077
-- Fix wbemcli dont accept dot (.) as password character on command line
-  Resolves: #1103368
-- Fix bogus date in %%changelog
-
-* Mon Mar 07 2016 Vitezslav Crhonek <vcrhonek@redhat.com> - 1.6.2-10
-- Backport (slightly modified) configurable SSL version feature from upstream,
-  update man page accordingly
-  Resolves: #1239115
-
-* Fri Jan 24 2014 Daniel Mach <dmach@redhat.com> - 1.6.2-9
-- Mass rebuild 2014-01-24
-
-* Fri Dec 27 2013 Daniel Mach <dmach@redhat.com> - 1.6.2-8
-- Mass rebuild 2013-12-27
-
 * Wed Jun 26 2013 Vitezslav Crhonek <vcrhonek@redhat.com> - 1.6.2-7
 - Fix wrong usage of libcurl API, which caused segfaults when wbemcli was used
   with https scheme (patch by kdudka@redhat.com)
@@ -123,7 +101,7 @@ mkdir -p $RPM_BUILD_ROOT/%{_datadir}/%{name}
 - Upgrade to version 1.5.1 (SSL V3 enforced, default CACERT).
 - Created Fedora/RH specific spec file.
 
-* Fri Oct 28 2005 Viktor Mihajlovski <mihajlov@de.ibm.com> - 1.5.0-1
+* Thu Oct 28 2005 Viktor Mihajlovski <mihajlov@de.ibm.com> - 1.5.0-1
 - Minor enhancements for Fedora compatibility, still not daring to
   nuke the build root though
 
