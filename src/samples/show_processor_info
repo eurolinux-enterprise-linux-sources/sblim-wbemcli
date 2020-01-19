@@ -1,0 +1,7 @@
+#!/bin/sh
+#
+# Lists all the instrumented Linux classes
+PATH=.:$PATH
+PROCESSOR=`wbemein http://localhost/root/cimv2:Linux_Processor`
+# Assuming only one processor
+wbemgi -nl http://$PROCESSOR

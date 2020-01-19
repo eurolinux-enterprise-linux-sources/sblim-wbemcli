@@ -1,0 +1,23 @@
+localhost:5988/root/cimv2:Linux_Processor.CreationClassName="Linux_Processor",DeviceID="0",SystemCreationClassName="Linux_ComputerSystem",SystemName="mihajlov.localdomain"
+-SystemCreationClassName="Linux_ComputerSystem"
+-SystemName="mihajlov.localdomain"
+-CreationClassName="Linux_Processor"
+-DeviceID="0"
+-Caption="Linux Processor"
+-Description="This class represents instances of available processors."
+-Status="NULL"
+-Role="Central Processor"
+-CPUStatus=1
+-LoadPercentage=19
+-Stepping="stepping level:  10"
+-Family=17
+-OtherFamilyDescription="NULL"
+-MaxClockSpeed=996
+-CurrentClockSpeed=996
+-Name="0"
+-ElementName="Pentium III (Coppermine)"
+-EnabledStatus=2
+-OtherEnabledStatus="NULL"
+-RequestedStatus=2
+-EnabledDefault=2
+

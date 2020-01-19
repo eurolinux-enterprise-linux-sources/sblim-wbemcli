@@ -1,0 +1,15 @@
+WBEMCLI was originally written by Adrian Schuur, <schuur@de.ibm.com>.
+
+Markus Mueller <markus_mueller@de.ibm.com>, Heidi Neumann <heidineu@de.ibm.com>
+and Viktor Mihajlovski <mihajlov@de.ibm.com> have contributed enhancements
+and bugfixes.
+
+Steve Shepherd <steve.shepherd@configuresoft.com> has contributed the WinHttp
+support, the SunSMC.cpp file, the mcx (Extrinsic Method Call) method and many
+bug fixes.
+
+Dave Eger <dteger@us.ibm.com> has contributed the Python wrapper code for
+WBEMCLI.
+
+Philip K. Warren <pkw@us.ibm.com> has written the libcurl HTTP layer and
+enabled https processing.

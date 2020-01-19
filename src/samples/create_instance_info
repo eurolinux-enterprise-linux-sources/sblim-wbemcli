@@ -1,0 +1,1 @@
+wbemcli ci 'http://localhost:5988/root/cimv2:TST_InstanceProperties.CreationClassName="TST_InstanceProperties",Id="Instance #3"' 'CreationClassName="TST_InstanceProperties",Id="Instance #3",Property_string="This is instance#3",Property_uint8=250'

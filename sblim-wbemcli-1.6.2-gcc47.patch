@@ -1,0 +1,26 @@
+diff -up sblim-wbemcli-1.6.2/CimCurl.h.orig sblim-wbemcli-1.6.2/CimCurl.h
+--- sblim-wbemcli-1.6.2/CimCurl.h.orig	2012-01-05 13:55:30.901154659 +0100
++++ sblim-wbemcli-1.6.2/CimCurl.h	2012-01-05 13:55:44.723271863 +0100
+@@ -24,6 +24,7 @@
+ #include "CimXml.h"
+ #include <curl/curl.h>
+ #include <sstream>
++#include <unistd.h>
+ 
+ 
+ class CimomCurl : public Cimom {
+diff -up sblim-wbemcli-1.6.2/CimXml.h.orig sblim-wbemcli-1.6.2/CimXml.h
+--- sblim-wbemcli-1.6.2/CimXml.h.orig	2012-01-05 13:54:52.445828446 +0100
++++ sblim-wbemcli-1.6.2/CimXml.h	2012-01-05 13:54:52.449828480 +0100
+@@ -129,9 +129,9 @@ template<class T> class ArrayXml : publi
+   public:
+    ArrayXml() {}
+    ArrayXml<T> * clone() const { return new ArrayXml<T>(*this);}
+-   void add(const T& t) { push_back(t); }
++   void add(const T& t) { this->push_back(t); }
+ #if !defined(GCC_VERSION) || GCC_VERSION >= 3000
+-   T& operator[] (size_type n) {return at(n);}
++   T& operator[] (size_type n) {return this->at(n);}
+    const T& operator[] (size_type n) const {return at(n);}
+ #endif
+    T *get(int n)    { return &(*this)[n]; }

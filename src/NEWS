@@ -1,0 +1,134 @@
+Changes in Version 1.6.2
+========================
+
+Bugs:
+- 3324380 support optional CIMType in KEYVALUE element
+- 3216622 wbemcli throws parser error on CDATA string value
+- 2991546 Core dumps when property contains value within "[]"
+
+Changes in Version 1.6.1
+========================
+
+Bugs:
+- 2140320: remove unnecessary ansidecl.h inclusion
+- 2169489: fails to compile with gcc 3.3.3
+- 2418867: remove deprecated const string to char conversion
+- 2108395: segfaults on cm when objectpath is just classname
+- 2569362: support for OpenSolaris
+- 2698278: COPYING still contains CPL text
+- 2100880: No Namespace in Response
+- 2805214: should escape backslash character in CimXml::unescapeXml()
+- 2809281: update man page with chunking option
+- 2418476: gi quotes objetname in ref properties
+- 2811674: apostrophe not unescaped correctly in xml
+
+Changes in Version 1.6.0
+========================
+
+Bugs:
+- 2032716: wbemcli fails to compile with gcc 4.3.1
+- 2032703: wbemcli crashes on malformed xml response from server
+- 1783603: wbemcli reports incorrect namespace on reference calls
+- 2041983: Change license from CPL to EPL
+
+Changes in Version 1.5.4
+========================
+
+Bugs:
+- 1692696: mi does not correctly parse ref parameter
+- 1690542: ci/di do not correctly parse ref parameter
+- 1671996: wbemcli fails handling reference values of extrinsic methods
+- 1689495: IPv6 address support
+- 1689497: specify username and port without password
+- 1698325: enumeration of association instances does not work
+- 1710167: namespace is not parsed from ref property
+- 1728703: gcd doesn't report error when class not found
+- 1979654: ec of CIM_InstIndication w/EmbeddedObj fails
+- 1616370: null property display/setting unlogical
+- 1756553: doesn't accept classes for ain,ai,rin,ri operations
+- 1783603: wbemcli reports incorrect namespace
+
+Changes in Version 1.5.3
+========================
+
+Bugs:
+- 1560865 create/modifyInstance do not correctly deal with arrays
+- 1611024 support create/modifyInstance for Associations
+- 1632746 no error message on incorrect input values
+- 1652347 does not correctly handle VALUE.REFERENCE blocks
+
+Changes in Version 1.5.2
+========================
+Bugs:
+- 1457924 fixed some compile warnings
+
+Changes in Version 1.5.1
+========================
+Bugs:
+- 1362712 wbemcli was failing on https connections with FC5 Pegasus,
+	  forcing SSL V3 works around the failure.
+- 1362716 added default CA certificate file for https connections,
+ 	  added RH specific spec file.
+
+Changes in Version 1.5.0
+========================
+Features:
+- 1308031 Support for server certificate verification and client side
+          certificates.
+
+Bugs:
+- 1221942 Fixed man page typo.
+- 1295687 README and samples enhanced
+- 1305968 Fixed invalid XML for enumerate classes
+
+
+Changes in Version 1.4.11
+=========================
+Bugs:
+- 1184528 Fix key type recognition.
+- 1236584 RPM Build Enhancements
+
+Changes in Version 1.4.10
+=========================
+Bugs:
+- 1200421 Fix for Interoperability Problem with OpenWBEM.
+
+Changes in Version 1.4.9
+========================
+Bugs:
+- Fix for slowdown and instabilities in conjunction with sfcb.
+
+Version 1.4.8 - 12/06/2004 (Philip K. Warren)
+
+Support for libcurl and https URLs added.
+
+Version 1.4.7+ - 10/14/2004
+
+Autoconfiscated the package using the GNU autoconf/automake tools.
+Now the wbemcli can be built using configure/make.
+
+Version 1.4 - 02/02/2004
+
+New functions: set/get property, call method.
+Support for winhttp layer.
+
+Version 1.0 - 4/12/2003 (Viktor Mihajlovski,Adrian Schuur)
+
+Restructured build setup: now it is possible to "plugin" the HTTP protocol
+library. Supported are W3C's libwww and Gnome's libghttp.
+Indirection support allows you to store CIMOM URLs including authentication
+information in a side file and use an alias instead for CIMOM access.
+
+Version 0.9 - 8/13/2002
+
+Steve Shepherd reorganized the source code fixed a few minor bugs 
+and improved make processing
+
+Version 0.8.3 - 
+Fixed Pegasus and OpenWbem compatibilty issues
+
+Version 0.8.2 - 
+First public version
+
+Version 0.8 -
+Initial version
