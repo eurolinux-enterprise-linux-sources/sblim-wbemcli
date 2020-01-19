@@ -1,0 +1,15 @@
+diff -up sblim-wbemcli-1.6.2/CimXml.cpp.orig sblim-wbemcli-1.6.2/CimXml.cpp
+--- sblim-wbemcli-1.6.2/CimXml.cpp.orig	2011-06-22 07:58:39.000000000 +0200
++++ sblim-wbemcli-1.6.2/CimXml.cpp	2017-02-08 15:51:42.260757574 +0100
+@@ -2983,9 +2983,9 @@ URL::URL(const char *U)
+        u += 7;
+    }
+    phelp=strchr(u,'@'); // potential auth token delimiter
+-   p=strchr(u,'.');     // potential key/host delimiter (doesn't matter)
++   p=NULL;
+    b=strchr(u,'[');     // likely an IPv6 host
+-   if (phelp && ( p==NULL || p > phelp)) {
++   if (phelp) {
+      // contains auth token[s] -- process them
+      p=strchr(u,':');
+      if (b != NULL && p != NULL && (p < b)) {
