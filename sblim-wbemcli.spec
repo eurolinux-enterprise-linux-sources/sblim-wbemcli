@@ -1,6 +1,6 @@
 Name:           sblim-wbemcli
 Version:        1.6.2
-Release:        7%{?dist}
+Release:        9%{?dist}
 Summary:        SBLIM WBEM Command Line Interface
 
 Group:          Applications/System
@@ -40,6 +40,12 @@ mkdir -p $RPM_BUILD_ROOT/%{_datadir}/%{name}
 %{_datadir}/%{name}
 
 %changelog
+* Fri Jan 24 2014 Daniel Mach <dmach@redhat.com> - 1.6.2-9
+- Mass rebuild 2014-01-24
+
+* Fri Dec 27 2013 Daniel Mach <dmach@redhat.com> - 1.6.2-8
+- Mass rebuild 2013-12-27
+
 * Wed Jun 26 2013 Vitezslav Crhonek <vcrhonek@redhat.com> - 1.6.2-7
 - Fix wrong usage of libcurl API, which caused segfaults when wbemcli was used
   with https scheme (patch by kdudka@redhat.com)
